@@ -11,7 +11,7 @@
 </script>
 
 <template>
-    <div :class="['item', { done: item.done }]" @click="todosStore.toggleStatus(item.id)">
+    <div :class="['item', { done: item.done }]" @click="todosStore.toggle(item.id)">
         <div class="name">
             {{ item.name }}
         </div>
@@ -24,6 +24,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
+        border-radius: 0.4rem;
+        transition: 0.3s background-color;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .item:hover {
+        background-color: #f0f0f0;
     }
 
     .item.done {
